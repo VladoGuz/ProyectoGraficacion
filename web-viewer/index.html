@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Visor 3D de Molino de Viento — Proyecto Final de Graficación. Modelo 3D interactivo con animación de aspas, iluminación PBR y soporte para archivos .dat personalizados." />
+    <meta name="keywords" content="graficación 3D, molino de viento, WebGL, Three.js, visualizador 3D, modelo 3D" />
+    <meta name="author" content="Proyecto Final Graficación" />
+    <title>Visor 3D — Molino de Viento | Graficación por Computadora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌬️</text></svg>" />
+    <script type="module" crossorigin src="/ProyectoGraficacion/web-viewer/assets/index-BtLebl3h.js"></script>
+    <link rel="modulepreload" crossorigin href="/ProyectoGraficacion/web-viewer/assets/three-DWiG7Yew.js">
+    <link rel="stylesheet" crossorigin href="/ProyectoGraficacion/web-viewer/assets/index-unF6nNX7.css">
+  </head>
+  <body>
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <span>Cargando modelo…</span>
+    </div>
+
+    <!-- Main layout -->
+    <div id="app">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="header-brand">
+          <span class="header-icon"></span>
+          <div>
+            <h1 class="header-title">Visor 3D — Molino de Viento</h1>
+            <p class="header-subtitle">Graficación </p>
+          </div>
+        </div>
+        <div class="header-badges">
+         
+        </div>
+      </header>
+
+      <!-- Main content -->
+      <main class="main-content">
+
+        <!-- Canvas -->
+        <div id="canvas-container" class="canvas-container">
+          <div class="canvas-hint">
+            <span>Arrastrar para rotar &nbsp;·&nbsp; Scroll para zoom &nbsp;·&nbsp; Clic derecho para desplazar camara</span>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+          <!-- Model info card -->
+          <div class="card card-info">
+            <div class="card-header">
+              <span class="card-icon"></span>
+              <h2 class="card-title">Información del Modelo</h2>
+            </div>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">Nombre</span>
+                <span id="info-model-name" class="info-value accent">Cargando…</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Vértices</span>
+                <span id="info-vertices" class="info-value">—</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Caras</span>
+                <span id="info-faces" class="info-value">—</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Piezas</span>
+                <span id="info-parts" class="info-value">—</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Piezas animadas</span>
+                <span id="info-animated" class="info-value accent">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Animation controls card -->
+          <div class="card card-controls">
+            <div class="card-header">
+              <span class="card-icon"></span>
+              <h2 class="card-title">Control de Animación</h2>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="speed-slider">
+                Velocidad de Aspas
+                <span id="speed-value" class="control-value">1.0x</span>
+              </label>
+              <div class="slider-track">
+                <input
+                  id="speed-slider"
+                  type="range"
+                  min="0"
+                  max="5"
+                  step="0.1"
+                  value="1"
+                  class="slider"
+                />
+              </div>
+              <div class="slider-labels">
+                <span>Lento</span>
+                <span>Rápido</span>
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <button id="btn-pause" class="btn btn-primary">
+                ⏸ Pausar
+              </button>
+              <button id="btn-reset-camera" class="btn btn-secondary">
+                Resetear Cámara
+              </button>
+            </div>
+          </div>
+
+          <!-- File loader card -->
+          <div class="card card-file">
+            <div class="card-header">
+              <span class="card-icon"></span>
+              <h2 class="card-title">Cargar Modelo .dat</h2>
+            </div>
+            <p class="card-desc">
+              Sube tu propio archivo <code>.dat</code> generado con las herramientas Python del proyecto.
+            </p>
+            <label class="file-drop-zone" for="file-input" id="file-label">
+              <span class="file-drop-icon">⬆</span>
+              <span>Clic para seleccionar o arrastra un .dat</span>
+              <span class="file-drop-hint">Formatos: .dat, .txt</span>
+            </label>
+            <input
+              id="file-input"
+              type="file"
+              accept=".dat,.txt"
+              hidden
+            />
+          </div>
+
+        </aside>
+      </main>
+    </div>
+
+  </body>
+</html>
