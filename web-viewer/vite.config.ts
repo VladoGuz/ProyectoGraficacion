@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   // Para GitHub Pages: cambia 'ProyectoFinalGraficacion' al nombre de tu repo
-  base: '/ProyectoFinalGraficacion/',
+  base: '/ProyectoGraficacion/web-viewer/',
   build: {
     outDir: 'dist',
     sourcemap: false,
