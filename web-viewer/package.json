@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://vladoguz.github.io/ProyectoGraficacion/web-viwer",
+  "homepage": "https://vladoguz.github.io/ProyectoGraficacion/web-viewer",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
